@@ -10,9 +10,13 @@ export const ToggleTheme = () => {
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
 
+    const sx = {
+      color: '#fff'
+    }
+
     return (
       <IconButton sx={{ ml: 1, alignSelf: 'center' }} onClick={colorMode.toggleColorMode} color="inherit">
-        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        {theme.palette.mode === 'dark' ? <Brightness7Icon sx={sx} /> : <Brightness4Icon sx={sx} />}
       </IconButton>
     )
 }
