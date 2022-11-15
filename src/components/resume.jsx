@@ -9,7 +9,16 @@ export const Resume = () => {
     const [epxerienceExp, setExperienceExp] = useState(true)
 
     return (
-        <>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                bgcolor: 'background.default',
+                color: 'text.primary',
+                borderRadius: 1,
+                p: 3,
+            }}
+        >
             <Accordion expanded={skillsExp} onChange={() => setSkillsExp(!skillsExp)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -61,6 +70,6 @@ export const Resume = () => {
                     Some details
                 </AccordionDetails>
             </Accordion>
-        </>
+        </Box>
     )
 }

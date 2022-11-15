@@ -1,22 +1,41 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import PortalReactDom from 'react-dom';
 import { Resume } from './components/resume';
-import { ThemeProvider, ToggleTheme } from './components/themeProvider';
+import { ToggleTheme, ColorModeContext } from './components/toggleTheme';
+import { createTheme, ThemeProvider as MuiProvider } from '@mui/material/styles';
 
-const resumeRoot = ReactDOM.createRoot(document.getElementById('resume-root'));
-resumeRoot.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <Resume />
-    </ThemeProvider>
-  </React.StrictMode>
-);
+const resumeRoot = document.getElementById('resume-root');
+const toggelThemeRoot = document.getElementById('toggle-theme-root');
+const themeProviderRoot = ReactDOM.createRoot(document.getElementById('toggle-theme-root'));
 
-const toggelThemeRoot = ReactDOM.createRoot(document.getElementById('toggle-theme-root'));
-toggelThemeRoot.render(
+const ThemeProviderRoot = () => {
+  const [mode, setMode] = useState('light');
+  const colorMode = useMemo(() => ({
+      toggleColorMode: () => {
+          setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+  }), []);
+
+  const theme = useMemo(() => createTheme({
+      palette: {
+          mode,
+      },
+  }), [mode]);
+  
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <MuiProvider theme={theme}>
+        <>
+          {PortalReactDom.createPortal(<ToggleTheme />, toggelThemeRoot)}
+          {PortalReactDom.createPortal(<Resume />, resumeRoot)}
+        </>
+      </MuiProvider>
+    </ColorModeContext.Provider>
+  )}
+
+themeProviderRoot.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <ToggleTheme />
-    </ThemeProvider>
+    <ThemeProviderRoot />
   </React.StrictMode>
 );
