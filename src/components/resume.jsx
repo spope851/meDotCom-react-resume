@@ -1,8 +1,10 @@
-import { Accordion, AccordionSummary, Typography, Box } from "@mui/material";
+import { Accordion, AccordionSummary, Typography, Box, ListItem } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React, { useState } from "react";
 import { Experience } from "./experience";
 import { AccordionDetails } from "./accordionDetails";
+import { LinkSummary } from "./linkSummary";
+import { List } from "./list";
 
 export const Resume = () => {
     const [skillsExp, setSkillsExp] = useState(true)
@@ -27,16 +29,16 @@ export const Resume = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        <Box component="span" sx={{ fontWeight: 'bold' }}>
+                        <Box component="span" sx={{ fontWeight: 'bold', mr: 1 }}>
                             Languages:
                         </Box>
-                        TypeScript, JavaScript, SQL, HTML, CSS, Python
+                        TypeScript, JavaScript, HTML, CSS, Python, SQL
                     </Typography>
                     <Typography>
-                        <Box component="span" sx={{ fontWeight: 'bold' }}>
+                        <Box component="span" sx={{ fontWeight: 'bold', mr: 1 }}>
                             Software/Frameworks:
                         </Box>
-                        React, Next.js, Node.js, Svelte, .Net, MongoDB, Docker, AWS
+                        React.js, Next.js, Node.js, Svelte.js, PostgreSQL, SQL Server, MongoDB, .Net, Docker, AWS
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -54,10 +56,21 @@ export const Resume = () => {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <Typography variant="h6">Accolades</Typography>
+                    <Typography variant="h6">Achievements</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    Some details
+                    <List>
+                        <ListItem>
+                            <Typography>
+                                Built this site from scratch
+                            </Typography>
+                        </ListItem>
+                        <ListItem>
+                            <Typography>
+                                First degree black belt in karate
+                            </Typography>
+                        </ListItem>
+                    </List>
                 </AccordionDetails>
             </Accordion>
             <Accordion>
@@ -67,7 +80,64 @@ export const Resume = () => {
                     <Typography variant="h6">Formal Education</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    Some details
+                    <Accordion>
+                        <LinkSummary
+                            title="BS, Business Admin"
+                            linkTitle="University of New Hampshire"
+                            href="https://unh.edu"
+                            subTitle="2015-2019"
+                        />
+                        <AccordionDetails>
+                            <List>
+                                <ListItem>
+                                    <Typography>
+                                        Studied Information Technology for a minor with the College of Engineering and Physical Sciences
+                                    </Typography>
+                                </ListItem>
+                                <ListItem sx={{ ml: 5 }}>
+                                    <Typography>
+                                        Courses on web development, DBMS, coding in Python, internet protocols, and computer architecture
+                                    </Typography>
+                                </ListItem>
+                                <ListItem>
+                                    <Typography>
+                                        Studied Information Stystem & Business Analytics with the Peter T. Paul School of Business and Economics
+                                    </Typography>
+                                </ListItem>
+                                <ListItem sx={{ ml: 5 }}>
+                                    <Typography>
+                                        Studied the roles technology plays in modern business
+                                    </Typography>
+                                </ListItem>
+                                <ListItem sx={{ ml: 5 }}>
+                                    <Typography>
+                                        Served executive roles for Information Systems Management Association student org
+                                    </Typography>
+                                </ListItem>
+                                <ListItem sx={{ ml: 5 }}>
+                                    <Typography>
+                                        Worked as teachers&apos; assistent for Management Information Systems course
+                                    </Typography>
+                                </ListItem>
+                            </List>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                        <LinkSummary
+                            linkTitle="Beijing Language and Culture University"
+                            href="http://english.blcu.edu.cn/"
+                            subTitle="January 2019"
+                        />
+                        <AccordionDetails>
+                            <List>
+                                <ListItem>
+                                    <Typography>
+                                        Studied Mandarin 20 hours per week with the College of Intensive Chinese Language Studies
+                                    </Typography>
+                                </ListItem>
+                            </List>
+                        </AccordionDetails>
+                    </Accordion>
                 </AccordionDetails>
             </Accordion>
         </Box>
