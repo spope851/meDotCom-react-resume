@@ -21,6 +21,15 @@ export const Resume = () => {
                 p: 3,
             }}
         >
+            <Typography
+                variant="h5"
+                sx={{
+                    textAlign: 'center',
+                    m: '0px 0px 24px',
+                }}
+            >
+                Spencer Pope: Professional Web Developer and Software Engineer
+            </Typography>
             <Accordion expanded={skillsExp} onChange={() => setSkillsExp(!skillsExp)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -67,7 +76,7 @@ export const Resume = () => {
                         </ListItem>
                         <ListItem>
                             <Typography>
-                                First degree black belt in karate
+                                First-degree black belt in karate
                             </Typography>
                         </ListItem>
                     </List>
@@ -85,13 +94,13 @@ export const Resume = () => {
                             title="BS, Business Admin"
                             linkTitle="University of New Hampshire"
                             href="https://unh.edu"
-                            subTitle="2015-2019"
+                            subTitle="2015 - 2019"
                         />
                         <AccordionDetails>
                             <List>
                                 <ListItem>
                                     <Typography>
-                                        Studied Information Technology for a minor with the College of Engineering and Physical Sciences
+                                        Studied Information Technology as a minor with the College of Engineering and Physical Sciences
                                     </Typography>
                                 </ListItem>
                                 <ListItem sx={{ ml: 5 }}>
@@ -101,12 +110,12 @@ export const Resume = () => {
                                 </ListItem>
                                 <ListItem>
                                     <Typography>
-                                        Studied Information Stystem & Business Analytics with the Peter T. Paul School of Business and Economics
+                                        Studied Information Systems & Business Analytics with the Peter T. Paul School of Business and Economics
                                     </Typography>
                                 </ListItem>
                                 <ListItem sx={{ ml: 5 }}>
                                     <Typography>
-                                        Studied the roles technology plays in modern business
+                                        Courses on the roles technology play in modern businesses
                                     </Typography>
                                 </ListItem>
                                 <ListItem sx={{ ml: 5 }}>
@@ -116,7 +125,7 @@ export const Resume = () => {
                                 </ListItem>
                                 <ListItem sx={{ ml: 5 }}>
                                     <Typography>
-                                        Worked as teachers&apos; assistent for Management Information Systems course
+                                        Worked as teachers&apos; assistant for Management Information Systems course
                                     </Typography>
                                 </ListItem>
                             </List>

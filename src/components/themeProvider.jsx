@@ -14,6 +14,15 @@ export const ThemeProvider = ({ children }) => {
       palette: {
           mode,
       },
+      components: {
+        MuiAccordion: {
+          styleOverrides: {
+            root: {
+              border: 'solid'
+            }
+          }
+        }
+      },
   }), [mode]);
 
     return (
